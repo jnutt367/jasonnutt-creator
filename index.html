@@ -11,50 +11,135 @@
 
 
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif;}
-body, html {
-  height: 100%;
-  color: #777;
-  line-height: 1.8;
-}
-
-/* Create a Parallax Effect */
-.bgimg-1, .bgimg-2, .bgimg-3 {
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-/* First image (Logo. Full height) */
-.bgimg-1 {
-  background-image: url('jason-canva-bg.png');
-  background-size: cover;
-  min-height: 50%;
-}
-
-/* Second image (Portfolio) */
-.bgimg-2 {
-  background-image: url("jason_at_work.jpeg");
-  min-height: 400px;
-}
-
-/* Third image (Contact) */
-.bgimg-3 {
-  background-image: url("jason_at_desk.jpeg");
-  min-height: 400px;
-}
-
-.w3-wide {letter-spacing: 10px;}
-.w3-hover-opacity {cursor: pointer;}
-
-/* Turn off parallax scrolling for tablets and phones */
-@media only screen and (max-device-width: 1600px) {
+  body,h1,h2,h3,h4,h5,h6 {
+    font-family: "Lato", sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+    color: #777;
+    line-height: 1.8;
+  }
+  
+  /* Create a Parallax Effect */
   .bgimg-1, .bgimg-2, .bgimg-3 {
-    background-attachment: scroll;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  /* First image (Logo. Full height) */
+  .bgimg-1 {
+    background-image: url('jason-canva-bg.png');
+    background-size: cover;
+    min-height: 50%;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+  }
+  
+  /* Second image (Portfolio) */
+  .bgimg-2 {
+    background-image: url("jason_at_work.jpeg");
     min-height: 400px;
+    animation-name: slideInLeft;
+    animation-duration: 2s;
+  }
+  
+  /* Third image (Contact) */
+  .bgimg-3 {
+    background-image: url("jason_at_desk.jpeg");
+    min-height: 400px;
+    animation-name: slideInRight;
+    animation-duration: 2s;
+  }
+  
+  .w3-wide {
+    letter-spacing: 10px;
+  }
+  
+  .w3-hover-opacity {
+    cursor: pointer;
+  }
+  
+/* Animation Definitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    
+  }
+  to {
+    opacity: 1;
   }
 }
+
+@keyframes slideInLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-450px);
+  }
+  100% {
+    opacity: 1;
+    transform:  3s translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+  
+
+/* Animation for the home section */
+#home .w3-display-middle {
+  animation: fadeInDown 2s ease-in-out;
+  transform: translateY(-250px);
+  transform: translateX(-430px);
+}
+
+/* Animation for the about section */
+#about .w3-col {
+  animation: slideInLeft 1s ease-in-out;
+}
+
+/* Animation for the portfolio section */
+#portfolio .w3-col {
+  animation: slideInRight 1s ease-in-out;
+}
+
+/* Keyframes for the animations */
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(110);
+  }
+}
+
+
+
+
+
+  /* Turn off parallax scrolling for tablets and phones */
+  @media only screen and (max-device-width: 1600px) {
+    .bgimg-1, .bgimg-2, .bgimg-3 {
+      background-attachment: scroll;
+      min-height: 400px;
+    }
+  }
+  
 </style>
 </head>
 <body>
