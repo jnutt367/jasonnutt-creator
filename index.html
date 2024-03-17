@@ -11,8 +11,15 @@
 
 
 <style>
+  html {
+    scroll-behavior: smooth;
+  }
+
+
   body,h1,h2,h3,h4,h5,h6 {
     font-family: "Lato", sans-serif;
+    transition: background-color 0.5s ease;
+
   }
   
   body, html {
@@ -102,7 +109,7 @@
 /* Animation for the home section */
 #home .w3-display-middle {
   animation: fadeInDown 2s ease-in-out;
-  transform: translateY(50px);
+  transform: translateY(50);
   transform: translateX(-150px);
 }
 
@@ -494,6 +501,31 @@ function toggleFunction() {
     }
 }
 </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start', // You can adjust the alignment if needed
+            duration: 100
+          });
+        }
+      });
+    });
+  });
+</script>
+
+
 
 </body>
 </html>
